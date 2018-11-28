@@ -5,7 +5,7 @@ class Auth extends CI_Controller {
         // function __construct(){
         // parent::__construct();
         // }
-
+//cobaaaa
     public function index() {
             $data = array(
                 'title' => 'Login Page',
