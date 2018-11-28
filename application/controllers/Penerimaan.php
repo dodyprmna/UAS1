@@ -54,7 +54,7 @@ class Penerimaan extends CI_Controller {
         $this->form_validation->set_rules('jumlah', 'Jumlah', 'required|min_length[1]|max_length[3]');
 
         if ($this->form_validation->run() == FALSE) {
-//           
+//           jika validasi gagal
             $this->tambah();
         } else {    
 //            jika validasi berhasil
@@ -66,7 +66,7 @@ class Penerimaan extends CI_Controller {
             );
 
             $this->load->model('penerimaan_model');
-            $this->user_model->tambah($data);
+            $this->penerimaan_model->tambah($data);
 
             redirect(site_url('Penerimaan'));
         }

@@ -10,7 +10,7 @@
                                 <h4 class="title"><?php echo $judul?></h4>
                             </div>
                             <div class="content">
-                                <form action="<?php echo $action;?>" >
+                                <form action="<?php echo $action;?>" method="POST">
                                     <div class="row">
                                         <div class="col-md-8">
                                             <div class="form-group">
@@ -45,7 +45,7 @@
                                         <div class="col-md-8">
                                             <div class="form-group">
                                                 <label>Tanggal</label>
-                                                <input type="date" class="form-control" name="tanggal">
+                                                <input type="date" class="form-control" name="tanggal" required="required">
                                             </div>
                                         </div>
                                     </div>
@@ -53,7 +53,7 @@
                                         <div class="col-md-8">
                                             <div class="form-group">
                                                 <label>jumlah</label>
-                                                <input type="number" class="form-control" placeholder="jumlah" name="jumlah">
+                                                <input type="number" class="form-control" placeholder="jumlah" name="jumlah" required="required">
                                             </div>
                                         </div>
                                     </div>
