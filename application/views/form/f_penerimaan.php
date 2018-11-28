@@ -23,7 +23,9 @@
                                                       <option value="<?php echo $r->id_barang; ?>"><?php echo $r->nama_barang;?></option>
                                                       <?php } ?>
                                                 </select>
+
                                             </div>
+                                            <button type="tambah" class="btn btn-info btn-fill pull-right" name="Tambah">+</button>
                                         </div>
                                     </div>
                                     <div class="row">
