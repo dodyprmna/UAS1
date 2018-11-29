@@ -11,7 +11,7 @@ class Penerimaan extends CI_Controller {
 
         $data = array(
             'title' => 'Data Penerimaan Barang',
-            'content' => 'tabel/t_penerimaan',
+            'content' => 'tabel/t_penerimaan2',
             'judul' => 'TABEL PENERIMAAN BARANG',
             'rows' => $rows
         );
@@ -31,8 +31,7 @@ class Penerimaan extends CI_Controller {
             'judul'     => 'Form Penerimaan',
             'title'     => 'Input Penerimaan',
             'action'    => base_url('Penerimaan/aksitambah'),
-            'content'   => 'form/f_penerimaan',
-            'id_barang' => set_value('idbarang', ''),
+            'content'   => 'form/f_penerimaan', 
             'id_user'   => set_value('idsuplier', ''),
             'tanggal'   => set_value('tanggal', ''),
             'jumlah'    => set_value('jumlah', ''),
@@ -48,7 +47,6 @@ class Penerimaan extends CI_Controller {
         $this->form_validation->set_error_delimiters('<div style="color:red; margin-bottom: 5px">', '</div>');
 
 //        rules validasi
-        $this->form_validation->set_rules('idbarang', 'ID Barang', 'required');
         $this->form_validation->set_rules('idsuplier', 'ID Suplier', 'required');
         $this->form_validation->set_rules('tanggal', 'Tanggal', 'required');
         $this->form_validation->set_rules('jumlah', 'Jumlah', 'required|min_length[1]|max_length[3]');
@@ -59,7 +57,6 @@ class Penerimaan extends CI_Controller {
         } else {    
 //            jika validasi berhasil
             $data = array(
-                'id_barang' => $this->input->post('idbarang'),
                 'id_user'   => $this->input->post('idsuplier'),
                 'tanggal'   => $this->input->post('tanggal'),
                 'jumlah'   => $this->input->post('jumlah')
@@ -72,6 +69,18 @@ class Penerimaan extends CI_Controller {
         }
     }
 
+    public function addDetail() {
+        $this->load->model('penerimaan_model');
+        $rows = $this->penerimaan_model->tampilkanSemua()->result();
+
+        $data = array(
+            'title' => 'Data Penerimaan Barang',
+            'content' => 'form/f_detail',
+            'judul' => 'ADD PENERIMAAN DETAIL',
+            'rows' => $rows
+        );
+        $this->load->view('layout', $data);
+    }
 }
 
 /* End of file barang.php */

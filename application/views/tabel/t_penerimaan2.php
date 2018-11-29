@@ -12,9 +12,10 @@
                                     <thead>
                                         <th>NO</th>
                                     	<th>ID PENERIMAAN</th>
-                                    	<th>ID BARANG</th>
-                                    	<th>ID SUPLYER</th><th>TANGGAL</th>
-                                    	<th>JUMLAH</th>
+                                    	<th>ID SUPLYER</th>
+                                        <th>TANGGAL</th>
+                                        <th>JUMLAH</th>
+                                        <th>AKSI</th>
                                     </thead>
                                     <tbody>
                                         <?php
@@ -22,12 +23,13 @@
                                             foreach ($rows as $row) {
                                                 ?>
                                                 <tr>
-                                                    <td><?php echo $nourut++; ?></td>
+                                                    <td><a href=""></a><?php echo $nourut++; ?></a></td>
                                                     <td><?php echo $row->id_penerimaan; ?></td>
-                                                    <td><?php echo $row->id_barang; ?></td>
                                                     <td><?php echo $row->id_user; ?></td>
                                                     <td><?php echo $row->tanggal; ?></td>
-                                                    <td><?php echo $row->jumlah; ?></td>
+                                                    <td></td>
+                                                    <td><a href="<?php echo base_url('penerimaan/addDetail')?>"><button type="button" class="btn btn-primary">ADD DETAIL</button></a></td>
+                                                </tr>
                                                 <?php
                                             }
                                         ?>
