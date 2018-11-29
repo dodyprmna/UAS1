@@ -11,6 +11,7 @@ class Home extends CI_Controller {
         }
 
     public function admin() {
+        
         $data = array(
             'title' => 'DASHBOARD',
             'content' => 'home'

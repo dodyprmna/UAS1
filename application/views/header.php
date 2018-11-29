@@ -76,7 +76,7 @@
 
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <a href="<?php echo base_url()?>">
+                            <a href="<?php echo base_url('auth/logout');?>">
                                 <p>Log out</p>
                             </a>
                         </li>
