@@ -2,17 +2,60 @@
 
 class Auth extends CI_Controller {
 
-        // function __construct(){
-        // parent::__construct();
-        // }
-//cobaaaa
-    public function index() {
-            $data = array(
-                'title' => 'Login Page',
-                // 'action' => site_url('auth/login'),
-                // 'error' => $error
-            );
-        $this->load->view('login',$data);
+function __construct(){
+        parent::__construct();
+        }
+
+    public function index($error = NULL) {
+        $data = array(
+            'title' => 'Login Page',
+            'action' => site_url('auth/login'),
+            'error' => $error
+        );
+        $this->load->view('login', $data);
+    }
+
+    public function login() {
+        $this->load->model('auth_model');
+        $login = $this->auth_model->login($this->input->post('username'), md5($this->input->post('password')));
+
+        if ($login == 1) {
+//          ambil detail data
+            $row = $this->auth_model->data_login($this->input->post('username'), md5($this->input->post('password')));
+
+
+                if($row->status==0){
+//            redirect ke halaman sukses
+                    //          daftarkan session
+                    $data = array(
+                        'logged' => TRUE,
+                        'username' => $row->username
+                    );
+                    $this->session->set_userdata($data);
+                    redirect(site_url('Home/admin'));
+                } else {
+                    $data = array(
+                        'logged' => TRUE,
+                        'username' => $row->username
+                    );
+                    $this->session->set_userdata($data);
+                    redirect(site_url('Home/supplier'));
+                }
+        } else {
+//            tampilkan pesan error
+            $error = 'username / password salah';
+            $this->index($error);
+        }
+    }
+
+    function logout() {
+//        destroy session
+        $this->session->sess_destroy();
+        
+//        redirect ke halaman login
+        redirect(site_url('auth'));
     }
 }
-?>
+
+/* End of file auth.php */
+/* Location: ./application/controllers/auth.php */
