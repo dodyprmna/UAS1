@@ -10,7 +10,17 @@
                                 <h4 class="title"><?php echo $judul?></h4>
                             </div>
                             <div class="content">
-                                <form action="<?php echo $action;?>" method="POST">
+                                <form action="" method="POST">
+
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <div class="form-group">
+                                                <label>id penerimaan</label>
+                                                <input type="text" class="form-control" name="idpenerimaan" value="<?php echo $row->id_penerimaan" disabled="">
+                                            </div>
+                                        </div>
+                                    </div>
+
                                     <div class="row">
                                         <div class="col-md-8">
                                             <div class="form-group">
@@ -26,20 +36,6 @@
 
                                             </div>
                                             <button type="tambah" class="btn btn-info btn-fill pull-right" name="Tambah">+</button>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-8">
-                                            <div class="form-group">
-                                                <label>id supplier</label>
-                                                <select class="form-control" id="supplier" name="idsuplier">
-                                                    <option>-Pilih Suplier-</option>
-                                                    <?php
-                                                        foreach($suplier as $sup) { ?>
-                                                      <option value="<?php echo $sup->id_user;?>"><?php echo $sup->username; ?></option>
-                                                      <?php } ?>
-                                                </select>
-                                            </div>
                                         </div>
                                     </div>
 

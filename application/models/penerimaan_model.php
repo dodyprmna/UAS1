@@ -10,6 +10,9 @@ class Penerimaan_model extends CI_Model {
         $q = $this->db->get($this->table);
         return $q;
     }
+    public function tambah($data) {
+        $this->db->insert($this->table, $data);
+    }
     
     // public function getById($id) {
     //     $q = $this->db->where($this->pk,$id);
