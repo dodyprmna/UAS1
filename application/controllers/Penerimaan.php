@@ -19,22 +19,19 @@ class Penerimaan extends CI_Controller {
     }
 
     public function tambah() {
-        $this->load->model('barang_model');
         $this->load->model('user_model');
         $suplier = $this->user_model->getById()->result();
-        $barang = $this->barang_model->tampilkanSemua()->result();
         $this->load->library('form_validation');
 
         $data = array(
             'suplier'   => $suplier,
-            'barang'    => $barang,
             'judul'     => 'Form Penerimaan',
             'title'     => 'Input Penerimaan',
             'action'    => base_url('Penerimaan/aksitambah'),
             'content'   => 'form/f_penerimaan', 
             'id_user'   => set_value('idsuplier', ''),
             'tanggal'   => set_value('tanggal', ''),
-            'jumlah'    => set_value('jumlah', ''),
+            'jumlah'    => set_value('',''),
             'tombol'    => 'Tambah'
         );
 
@@ -49,7 +46,6 @@ class Penerimaan extends CI_Controller {
 //        rules validasi
         $this->form_validation->set_rules('idsuplier', 'ID Suplier', 'required');
         $this->form_validation->set_rules('tanggal', 'Tanggal', 'required');
-        $this->form_validation->set_rules('jumlah', 'Jumlah', 'required|min_length[1]|max_length[3]');
 
         if ($this->form_validation->run() == FALSE) {
 //           jika validasi gagal
@@ -59,7 +55,7 @@ class Penerimaan extends CI_Controller {
             $data = array(
                 'id_user'   => $this->input->post('idsuplier'),
                 'tanggal'   => $this->input->post('tanggal'),
-                'jumlah'   => $this->input->post('jumlah')
+                'jumlah'    => '',
             );
 
             $this->load->model('penerimaan_model');
@@ -69,17 +65,31 @@ class Penerimaan extends CI_Controller {
         }
     }
 
-    public function addDetail() {
-        $this->load->model('penerimaan_model');
-        $rows = $this->penerimaan_model->tampilkanSemua()->result();
+    public function detail() {
+        // $this->load->model('detail_model');
+        // $rows = $this->detail_model->getById()->result();
 
         $data = array(
             'title' => 'Data Penerimaan Barang',
-            'content' => 'form/f_detail',
-            'judul' => 'ADD PENERIMAAN DETAIL',
-            'rows' => $rows
+            'content' => 'tabel/t_penerimaan',
+            'judul' => 'DETAIL PENERIMAAN BARANG',
+            // 'id_penerimaan' => $row->id_penerimaan,
+            // 'rows' => $rows
         );
         $this->load->view('layout', $data);
+    }
+
+    public function addDetail() {
+        // $this->load->model('penerimaan_model');
+        // $rows = $this->penerimaan_model->getById()->result();
+
+        // $data = array(
+        //     'title' => 'Detail Penerimaan Barang',
+        //     'content' => 'form/f_detail',
+        //     'judul' => 'ADD PENERIMAAN DETAIL',
+        //     'rows' => $rows
+        // );
+        // $this->load->view('layout', $data);
     }
 }
 
