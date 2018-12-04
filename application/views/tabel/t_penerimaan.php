@@ -2,13 +2,10 @@
             <div class="container-fluid">
                 <!-- form -->
                 <div class="row">
-                    <div class="col-md-2">
-                        
-                    </div>
-                    <div class="col-md-8">
+                    <div class="col-md-12">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title"><?php echo $judul?></h4>
+                                <h4 class="title">ADD DETAIL</h4>
                             </div>
                             <div class="content">
                                 <form action="" method="POST">
@@ -17,7 +14,7 @@
                                         <div class="col-md-8">
                                             <div class="form-group">
                                                 <label>id penerimaan</label>
-                                                <input type="text" class="form-control" name="idpenerimaan" value="<?php echo $row->id_penerimaan?>" disabled="">
+                                                <input type="text" class="form-control" name="idpenerimaan" value="" disabled="">
                                             </div>
                                         </div>
                                     </div>
@@ -36,7 +33,6 @@
                                                 </select>
 
                                             </div>
-                                            <button type="tambah" class="btn btn-info btn-fill pull-right" name="Tambah">+</button>
                                         </div>
                                     </div>
 
@@ -75,7 +71,6 @@
                         <div class="card">
                             <div class="header">
                                 <h2 class="title"><?php echo $judul?> </h2><br>
-                                <a href="<?php echo base_url('penerimaan/tambah')?>"><button type="button" class="btn btn-primary">Tambah</button></a>
                             </div>
                             <div class="content table-responsive table-full-width">
                                 <table class="table table-hover table-striped">
@@ -86,18 +81,12 @@
                                     	<th>JUMLAH</th>
                                     </thead>
                                     <tbody>
-                                        <?php
-                                            $nourut = 1;
-                                            foreach ($rows as $row) {
-                                                ?>
                                                 <tr>
-                                                    <td><?php echo $nourut++; ?></td>
-                                                    <td><?php echo $row->id_penerimaan; ?></td>
-                                                    <td><?php echo $row->id_barang; ?></td>
-                                                    <td><?php echo $row->jumlah; ?></td>
-                                                <?php
-                                            }
-                                        ?>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                            
                                     </tbody>
                                 </table>
                             </div>
