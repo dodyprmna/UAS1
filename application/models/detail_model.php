@@ -3,10 +3,8 @@
 class Detail_model extends CI_Model {
     
 //    nama tabel dan primary key
-    private $tabel = 'penerimaan';
-    private $pkey = 'id_penerimaan'
     private $table = 'detail_penerimaan';
-    private $pk = 'id_detail';
+    private $pk1 = 'id_penerimaan, id_barang';
     
 //    tampilkan semua data
     public function tampilkanSemua() {
@@ -16,7 +14,7 @@ class Detail_model extends CI_Model {
     }
     
     public function getById($id) {
-        $q = $this->db->where($this->pkey,$id);
+        $q = $this->db->where($this->pk1,$id);
         $q = $this->db->get($this->tabel);
         return $q;
     }

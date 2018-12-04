@@ -28,7 +28,7 @@
                                                     <td><?php echo $row->id_user; ?></td>
                                                     <td><?php echo $row->tanggal; ?></td>
                                                     <td></td>
-                                                    <td><a href="<?php echo base_url('penerimaan/addDetail')?>"><button type="button" class="btn btn-primary">ADD DETAIL</button></a></td>
+                                                    <td><a href="<?php echo base_url('penerimaan/detail')?>"><button type="button" class="btn btn-primary">DETAIL</button></a></td>
                                                 </tr>
                                                 <?php
                                             }
