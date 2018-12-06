@@ -16,7 +16,7 @@
                                         <div class="col-md-8">
                                             <div class="form-group">
                                                 <label>id penerimaan</label>
-                                                <input type="text" class="form-control" name="idpenerimaan" value="<?php echo $id" disabled="">
+                                                <input type="text" class="form-control" name="idpenerimaan" value="<?php echo $id ?>" disabled="">
                                             </div>
                                         </div>
                                     </div>
