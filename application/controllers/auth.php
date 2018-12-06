@@ -1,9 +1,10 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
-
+ 
 class Auth extends CI_Controller {
 
 function __construct(){
         parent::__construct();
+        $this->load->model('auth_model');
         }
 
     public function index($error = NULL) {
@@ -16,7 +17,6 @@ function __construct(){
     }
 
     public function login() {
-        $this->load->model('auth_model');
         $login = $this->auth_model->login($this->input->post('username'), md5($this->input->post('password')));
 
         if ($login == 1) {
@@ -29,17 +29,19 @@ function __construct(){
                     //          daftarkan session
                     $data = array(
                         'logged' => TRUE,
-                        'username' => $row->username
+                        'username' => $row->username,
+                        'level' => 'admin'
                     );
                     $this->session->set_userdata($data);
-                    redirect(site_url('Home/admin'));
+                    redirect(site_url('Home'));
                 } else {
                     $data = array(
                         'logged' => TRUE,
-                        'username' => $row->username
+                        'username' => $row->username,
+                        'level' => 'supplier'
                     );
                     $this->session->set_userdata($data);
-                    redirect(site_url('Home/supplier'));
+                    redirect(site_url('Home'));
                 }
         } else {
 //            tampilkan pesan error

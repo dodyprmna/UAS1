@@ -54,6 +54,12 @@
                 <li class="">
                     <a href="<?php echo base_url('barang')?> ">
                         <i class="pe-7s-box2"></i>
+                        <p>Tabel Pengiriman</p>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="<?php echo base_url('barang')?> ">
+                        <i class="pe-7s-box2"></i>
                         <p>Tabel Barang</p>
                     </a>
                 </li>

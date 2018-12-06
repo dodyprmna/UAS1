@@ -10,20 +10,13 @@ class Home extends CI_Controller {
         $this->load->library('form_validation');
         }
 
-    public function admin() {
-        
-        $data = array(
-            'title' => 'DASHBOARD',
-            'content' => 'home'
-        );
-        $this->load->view('layout', $data);
+    public function index(){
+       
     }
 
-    public function supplier(){
-        $data = array(
-            'title' => 'DASHBOARD',
-            'content' => 'home'
-        );
-    }
+
+
+
+
 }
 ?>

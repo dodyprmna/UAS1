@@ -2,7 +2,7 @@
 
 class Auth_model extends CI_Model {
     
-
+ 
 
 //    untuk mengcek jumlah username dan password yang sesuai
     function login($username,$password) {
