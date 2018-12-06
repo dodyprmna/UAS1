@@ -66,15 +66,15 @@ class Penerimaan extends CI_Controller {
     }
 
     public function detail() {
-        // $this->load->model('detail_model');
-        // $rows = $this->detail_model->getById()->result();
+        $this->load->model('detail_model');
+        $ID = $this->detail_model->getById()->result();
 
         $data = array(
             'title' => 'Data Penerimaan Barang',
             'content' => 'tabel/t_penerimaan',
             'judul' => 'DETAIL PENERIMAAN BARANG',
-            // 'id_penerimaan' => $row->id_penerimaan,
-            // 'rows' => $rows
+            'id' => $row->id_penerimaan,
+            'rows' => $ID
         );
         $this->load->view('layout', $data);
     }

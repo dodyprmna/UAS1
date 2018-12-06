@@ -4,7 +4,7 @@ class Detail_model extends CI_Model {
     
 //    nama tabel dan primary key
     private $table = 'detail_penerimaan';
-    private $pk1 = 'id_penerimaan, id_barang';
+    private $pk1 = 'id_penerimaan';
     
 //    tampilkan semua data
     public function tampilkanSemua() {
