@@ -15,12 +15,20 @@
                                     	<th>JUMLAH</th>
                                     </thead>
                                     <tbody>
+                                        <?php
+                                            $nourut = 1;
+                                            foreach ($rows as $row) {
+                                                ?>
                                                 <tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                            
+                                                    <td><?php echo $nourut++; ?></td>
+                                                    <td><?php echo $row->id_penerimaan; ?></td>
+                                                    <td><?php echo $row->id_barang; ?></td>
+                                                    <td><?php echo $row->jumlah_barang; ?></td>
+
+                                                </tr>
+                                                <?php
+                                            }
+                                        ?>
                                     </tbody>
                                 </table>
                             </div>

@@ -17,7 +17,8 @@ class Barang extends CI_Controller {
             );
             $this->load->view('layout', $data);
             }else{
-            echo "Tidak memiliki hak akses!";
+
+                echo "<script>alert('Tidak dapat di akses!');history.go(-1);</script>";
             }
     }
 

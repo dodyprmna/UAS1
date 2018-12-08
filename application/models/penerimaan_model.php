@@ -26,6 +26,12 @@ class Penerimaan_model extends CI_Model {
       $query=$this->db->query("SELECT * FROM penerimaan WHERE id_user='$id' ");
         return $query;
     }
+
+    public function tampilkanDet($id) {
+      $query=$this->db->query("SELECT * FROM detail_penerimaan WHERE id_penerimaan='$id' ");
+        return $query;
+    }
+
     
     // public function getById($id) {
     //     $q = $this->db->where($this->pk,$id);

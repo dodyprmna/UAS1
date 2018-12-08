@@ -18,7 +18,7 @@ class Penerimaan extends CI_Controller {
         );
         $this->load->view('layout', $data);
         }else{
-        echo "Tidak memiliki hak akses!";
+        echo "<script>alert('Tidak dapat di akses!');history.go(-1);</script>";
         }
 
     }
@@ -36,7 +36,7 @@ class Penerimaan extends CI_Controller {
         );
         $this->load->view('layout', $data);
         } else{
-        echo "Tidak memiliki hak akses!";
+        echo "<script>alert('Tidak dapat di akses!');history.go(-1);</script>";
         }
     }
 
@@ -62,7 +62,7 @@ class Penerimaan extends CI_Controller {
 
         $this->load->view('layout', $data);
         }else{
-            echo "Tidak memiliki hak akses!";
+            echo "<script>alert('Tidak dapat di akses!');history.go(-1);</script>";
             }
     }
 
@@ -93,8 +93,20 @@ class Penerimaan extends CI_Controller {
         }
 
         }else{
-            echo "Tidak memiliki hak akses!";
+            echo "<script>alert('Tidak dapat di akses!');history.go(-1);</script>";
             }
+    }
+
+    public function tampilDetail($id=null){
+                $this->load->model('penerimaan_model');
+                $ID = $this->penerimaan_model->tampilkanDet($id)->result();
+                 $data = array(
+            'title' => 'Data DetailPenerimaan Barang',
+            'content' => 'tabel/t_penerimaan',
+            'judul' => 'TABEL DETAIL PENERIMAAN BARANG',
+            'rows' => $ID
+        );
+                $this->load->view('layout', $data);
     }
 
     public function detail($id = null) {
@@ -113,6 +125,7 @@ class Penerimaan extends CI_Controller {
         );
         $this->load->view('layout', $data);
     }
+
     public function addDetail() {
         $this->form_validation->set_rules('jumlah', 'Jumlah', 'required');
         $this->form_validation->set_rules('idbarang', 'IDbarang', 'required');
