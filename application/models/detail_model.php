@@ -15,7 +15,7 @@ class Detail_model extends CI_Model {
     
     public function getById($id) {
         $q = $this->db->where($this->pk1,$id);
-        $q = $this->db->get($this->tabel);
+        $q = $this->db->get($this->table);
         return $q;
     }
     

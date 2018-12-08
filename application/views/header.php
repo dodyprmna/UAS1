@@ -49,26 +49,29 @@
                     ADMIN KITA
                 </a>
             </div>
-
             <ul class="nav">
-                <li class="">
-                    <a href="<?php echo base_url('barang')?> ">
-                        <i class="pe-7s-box2"></i>
-                        <p>Tabel Pengiriman</p>
-                    </a>
-                </li>
-                <li class="">
-                    <a href="<?php echo base_url('barang')?> ">
-                        <i class="pe-7s-box2"></i>
-                        <p>Tabel Barang</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="<?php echo base_url('penerimaan') ?>">
-                        <i class="pe-7s-note2"></i>
-                        <p>Tabel Penerimaan</p>
-                    </a>
-                </li>
+                <?php if($this->session->userdata('level')=='admin'):?>
+                    <li class="">
+                        <a href="<?php echo base_url('Barang')?> ">
+                            <i class="pe-7s-box2"></i>
+                            <p>Tabel Barang</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<?php echo base_url('Penerimaan') ?>">
+                            <i class="pe-7s-note2"></i>
+                            <p>Tabel Penerimaan</p>
+                        </a>
+                    </li>
+                <?php else:?>
+                    <li>
+                        <a href="<?php echo base_url('Penerimaan/penerimaan_sup') ?>">
+                            <i class="pe-7s-note2"></i>
+                            <p>Tabel Penerimaan</p>
+                        </a>
+                    </li>
+                <?php endif;?>
+                
             </ul>
     	</div>
     </div>

@@ -6,9 +6,10 @@ if (!defined('BASEPATH'))
 class Penerimaan extends CI_Controller {
 
     public function index() {
+        if($this->session->userdata('level') == 'admin'){
+
         $this->load->model('penerimaan_model');
         $rows = $this->penerimaan_model->tampilkanSemua()->result();
-
         $data = array(
             'title' => 'Data Penerimaan Barang',
             'content' => 'tabel/t_penerimaan2',
@@ -16,9 +17,32 @@ class Penerimaan extends CI_Controller {
             'rows' => $rows
         );
         $this->load->view('layout', $data);
+        }else{
+        echo "Tidak memiliki hak akses!";
+        }
+
+    }
+
+    public function penerimaan_sup() {
+        if($this->session->userdata('level') == 'supplier'){
+
+        $this->load->model('penerimaan_model');
+        $rows = $this->penerimaan_model->tampilkanSup($this->session->userdata('id'))->result();
+        $data = array(
+            'title' => 'Data Penerimaan Barang',
+            'content' => 'tabel/t_penerimaan2',
+            'judul' => 'TABEL PENERIMAAN BARANG',
+            'rows' => $rows
+        );
+        $this->load->view('layout', $data);
+        } else{
+        echo "Tidak memiliki hak akses!";
+        }
     }
 
     public function tambah() {
+        
+           if($this->session->userdata('level') == 'admin'){
         $this->load->model('user_model');
         $suplier = $this->user_model->getById()->result();
         $this->load->library('form_validation');
@@ -36,10 +60,13 @@ class Penerimaan extends CI_Controller {
         );
 
         $this->load->view('layout', $data);
+        }else{
+            echo "Tidak memiliki hak akses!";
+            }
     }
 
     public function aksitambah() {
-
+ if($this->session->userdata('level') == 'admin'){
 //        load library form validation
         $this->form_validation->set_error_delimiters('<div style="color:red; margin-bottom: 5px">', '</div>');
 
@@ -63,22 +90,25 @@ class Penerimaan extends CI_Controller {
 
             redirect(site_url('Penerimaan'));
         }
+
+        }else{
+            echo "Tidak memiliki hak akses!";
+            }
     }
 
-    public function detail() {
+    public function detail($id = null) {
         $this->load->model('detail_model');
-        $ID = $this->detail_model->getById()->result();
-
+        $ID = $this->detail_model->getById($id)->result();
+ 
         $data = array(
             'title' => 'Data Penerimaan Barang',
             'content' => 'tabel/t_penerimaan',
             'judul' => 'DETAIL PENERIMAAN BARANG',
-            'id' => $row->id_penerimaan,
+            'id' => $id,
             'rows' => $ID
         );
         $this->load->view('layout', $data);
     }
-
     public function addDetail() {
         // $this->load->model('penerimaan_model');
         // $rows = $this->penerimaan_model->getById()->result();

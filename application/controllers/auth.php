@@ -22,8 +22,6 @@ function __construct(){
         if ($login == 1) {
 //          ambil detail data
             $row = $this->auth_model->data_login($this->input->post('username'), md5($this->input->post('password')));
-
-
                 if($row->status==0){
 //            redirect ke halaman sukses
                     //          daftarkan session
@@ -38,7 +36,8 @@ function __construct(){
                     $data = array(
                         'logged' => TRUE,
                         'username' => $row->username,
-                        'level' => 'supplier'
+                        'level' => 'supplier',
+                        'id'=> $row->id_user
                     );
                     $this->session->set_userdata($data);
                     redirect(site_url('Home'));

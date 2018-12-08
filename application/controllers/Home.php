@@ -11,11 +11,15 @@ class Home extends CI_Controller {
         }
 
     public function index(){
-       
+       $data = array(
+	            'title' => 'Home',
+	            'content' => 'home',
+	            'judul' => 'Home',
+	        );
+	        $this->load->view('layout', $data);
     }
 
-
-
+	 
 
 
 }

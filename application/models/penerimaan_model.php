@@ -10,8 +10,14 @@ class Penerimaan_model extends CI_Model {
         $q = $this->db->get($this->table);
         return $q;
     }
+
     public function tambah($data) {
         $this->db->insert($this->table, $data);
+    }
+
+     public function tampilkanSup($id) {
+      $query=$this->db->query("SELECT * FROM penerimaan WHERE id_user='$id' ");
+        return $query;
     }
     
     // public function getById($id) {
