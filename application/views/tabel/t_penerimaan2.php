@@ -27,8 +27,13 @@
                                                     <td><?php echo $row->id_penerimaan; ?></td>
                                                     <td><?php echo $row->id_user; ?></td>
                                                     <td><?php echo $row->tanggal; ?></td>
-                                                    <td></td>
-                                                    <td><a href="<?php echo base_url('penerimaan/detail/'.$row->id_penerimaan) ?>"><button type="button" class="btn btn-primary">DETAIL</button></a></td>
+                                                    <td><?php echo $row->jumlah; ?></td>
+                                                    <?php if($row->tanggal==date('Y-m-d')){?>
+                                                        <td><a href="<?php echo base_url('penerimaan/detail/'.$row->id_penerimaan) ?>"><button type="button" class="btn btn-primary">ADD DETAIL</button></a></td>
+                                                    
+                                                    <?php } else {?>
+                                                        <td></td>
+                                                    <?php } ?>
                                                 </tr>
                                                 <?php
                                             }
@@ -40,4 +45,4 @@
                     </div>
                 </div>
             </div>
-</div>
+</div>)

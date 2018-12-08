@@ -42,8 +42,9 @@ class Penerimaan extends CI_Controller {
 
     public function tambah() {
         
-           if($this->session->userdata('level') == 'admin'){
+        if($this->session->userdata('level') == 'admin'){
         $this->load->model('user_model');
+
         $suplier = $this->user_model->getById()->result();
         $this->load->library('form_validation');
 
@@ -97,30 +98,42 @@ class Penerimaan extends CI_Controller {
     }
 
     public function detail($id = null) {
-        $this->load->model('detail_model');
-        $ID = $this->detail_model->getById($id)->result();
+        $this->load->model('penerimaan_model');
+        $this->load->model('barang_model');
+        $barang = $this->barang_model->tampilkanSemua()->result(); 
+        $ID = $this->penerimaan_model->getById($id)->result();
  
         $data = array(
             'title' => 'Data Penerimaan Barang',
-            'content' => 'tabel/t_penerimaan',
+            'content' => 'form/f_detail',
             'judul' => 'DETAIL PENERIMAAN BARANG',
             'id' => $id,
-            'rows' => $ID
+            'barang' => $barang,
+            'action' => base_url('Penerimaan/addDetail')
         );
         $this->load->view('layout', $data);
     }
     public function addDetail() {
-        // $this->load->model('penerimaan_model');
-        // $rows = $this->penerimaan_model->getById()->result();
+        $this->form_validation->set_rules('jumlah', 'Jumlah', 'required');
+        $this->form_validation->set_rules('idbarang', 'IDbarang', 'required');
 
-        // $data = array(
-        //     'title' => 'Detail Penerimaan Barang',
-        //     'content' => 'form/f_detail',
-        //     'judul' => 'ADD PENERIMAAN DETAIL',
-        //     'rows' => $rows
-        // );
-        // $this->load->view('layout', $data);
+        if ($this->form_validation->run() == FALSE) {
+//           jika validasi gagal
+            $this->tambah();
+        } else {    
+//            jika validasi berhasil
+            $data = array(
+                'id_penerimaan'   => $this->input->post('id'),
+                'id_barang'   => $this->input->post('idbarang'),
+                'jumlah_barang'   => $this->input->post('jumlah'),
+            );
+
+            $this->load->model('detail_model');
+            $this->detail_model->tambah($data);
+
+            redirect(site_url('Penerimaan'));
     }
+}
 }
 
 /* End of file barang.php */

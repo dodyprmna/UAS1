@@ -10,13 +10,13 @@
                                 <h4 class="title"><?php echo $judul?></h4>
                             </div>
                             <div class="content">
-                                <form action="" method="POST">
+                                <form action="<?php echo $action;?>" method="POST">
 
                                     <div class="row">
                                         <div class="col-md-8">
                                             <div class="form-group">
                                                 <label>id penerimaan</label>
-                                                <input type="text" class="form-control" name="idpenerimaan" value="<?php echo $id ?>" disabled="">
+                                                <input type="text" name="id" class="form-control" value="<?php echo $id ?>" readonly>
                                             </div>
                                         </div>
                                     </div>
@@ -35,23 +35,13 @@
                                                 </select>
 
                                             </div>
-                                            <button type="tambah" class="btn btn-info btn-fill pull-right" name="Tambah">+</button>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-md-8">
-                                            <div class="form-group">
-                                                <label>Tanggal</label>
-                                                <input type="date" class="form-control" name="tanggal" required="required">
-                                            </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-8">
                                             <div class="form-group">
                                                 <label>jumlah</label>
-                                                <input type="number" class="form-control" placeholder="jumlah" name="jumlah" required="required">
+                                                <input type="number" class="form-control"  name="jumlah" required="required">
                                             </div>
                                         </div>
                                     </div>
