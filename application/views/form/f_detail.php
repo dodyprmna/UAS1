@@ -53,6 +53,32 @@
                                         </div>
                                     </div>
                                 </form>
+
+                                <table class="table table-hover table-striped">
+                                    <thead>
+                                        <th>NO</th>
+                                        <th>ID PENERIMAAN</th>
+                                        <th>ID BARANG</th>
+                                        <th>JUMLAH</th>
+                                        <th>AKSI</th>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                            $nourut = 1;
+                                            foreach ($rows as $row) {
+                                                ?>
+                                                <tr>
+                                                    <td><?php echo $nourut++; ?></td>
+                                                    <td><?php echo $row->id_penerimaan; ?></td>
+                                                    <td><?php echo $row->id_barang; ?></td>
+                                                    <td><?php echo $row->jumlah_barang; ?></td>
+                                                    <td><a href="<?php echo base_url('penerimaan/delete/'.$row->id_penerimaan) ?>"><button type="button" class="btn btn-primary">DELETE</button></a></td>
+                                                </tr>
+                                                <?php
+                                            }
+                                        ?>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>

@@ -114,14 +114,15 @@ class Penerimaan extends CI_Controller {
         $this->load->model('barang_model');
         $barang = $this->barang_model->tampilkanSemua()->result(); 
         $ID = $this->penerimaan_model->getById($id)->result();
- 
+        $det = $this->penerimaan_model->tampilkanDet($id)->result();
         $data = array(
             'title' => 'Data Penerimaan Barang',
             'content' => 'form/f_detail',
             'judul' => 'DETAIL PENERIMAAN BARANG',
             'id' => $id,
             'barang' => $barang,
-            'action' => base_url('Penerimaan/addDetail')
+            'action' => base_url('Penerimaan/addDetail'),
+            'rows' => $det
         );
         $this->load->view('layout', $data);
     }
@@ -144,9 +145,13 @@ class Penerimaan extends CI_Controller {
             $this->load->model('detail_model');
             $this->detail_model->tambah($data);
 
-            redirect(site_url('Penerimaan'));
+            redirect(site_url('Penerimaan/detail/'.$this->input->post('id')));
     }
 }
+
+    public function delete(){
+        
+    }
 }
 
 /* End of file barang.php */
