@@ -32,18 +32,23 @@
                                                     <td><?php echo $row->id_user; ?></td>
                                                     <td><?php echo $row->tanggal; ?></td>
                                                     <td><?php echo $row->jumlah; ?></td>
-                                                    <?php if($this->session->userdata('level')=='admin'):?>
-                                                        <?php if($row->tanggal==date('Y-m-d')){?>
+                                                   
+                                                    <?php if($this->session->userdata('level')=='admin'){ 
+                                                         if(date('Y-m-d')==$row->tanggal){ ?>
                                                             <td><a href="<?php echo base_url('penerimaan/detail/'.$row->id_penerimaan) ?>"><button type="button" class="btn btn-primary">ADD DETAIL</button></a></td>
                                                         
                                                         <?php } else {?>
                                                             <td></td>
                                                         <?php } ?>
-                                                    <?php endif;?>
+                                                   
                                                 </tr>
                                                 <?php
                                             }
                                         ?>
+                                        <?php
+                                            }
+                                        ?>
+                                     
                                     </tbody>
                                 </table>
                             </div>
@@ -51,4 +56,4 @@
                     </div>
                 </div>
             </div>
-</div>)
+</div>
