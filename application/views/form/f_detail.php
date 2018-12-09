@@ -4,7 +4,7 @@
                     <div class="col-md-2">
                         
                     </div>
-                    <div class="col-md-8">
+                    <div class="col-md-12">
                         <div class="card">
                             <div class="header">
                                 <h4 class="title"><?php echo $judul?></h4>
