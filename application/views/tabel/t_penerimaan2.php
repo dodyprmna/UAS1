@@ -33,9 +33,10 @@
                                                     <td><?php echo $row->tanggal; ?></td>
                                                     <td><?php echo $row->jumlah; ?></td>
                                                     <?php if($this->session->userdata('level')=='admin'):?>
-                                                        <?php if($row->tanggal==date('Y-m-d')){?>
+                                                        <?php 
+                                                        date_default_timezone_set('Asia/Jakarta');
+                                                        if ($row->tanggal==date('Y-m-d')){?>
                                                             <td><a href="<?php echo base_url('penerimaan/detail/'.$row->id_penerimaan) ?>"><button type="button" class="btn btn-primary">ADD DETAIL</button></a></td>
-                                                        
                                                         <?php } else {?>
                                                             <td></td>
                                                         <?php } ?>
