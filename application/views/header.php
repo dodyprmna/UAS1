@@ -63,6 +63,12 @@
                             <p>Tabel Penerimaan</p>
                         </a>
                     </li>
+                    <li class="">
+                        <a href="<?php echo base_url('Penerimaan/history')?> ">
+                            <i class="pe-7s-note2"></i>
+                            <p>History</p>
+                        </a>
+                    </li>
                 <?php else:?>
                     <li>
                         <a href="<?php echo base_url('Penerimaan/penerimaan_sup') ?>">

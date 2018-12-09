@@ -145,8 +145,20 @@ class Penerimaan extends CI_Controller {
             $this->detail_model->tambah($data);
 
             redirect(site_url('Penerimaan'));
+        }
     }
-}
+
+    public function history(){
+        $this->load->model('history_model');
+        $rows = $this->history_model->tampilkanSemua()->result();
+        $data = array(
+            'title' => 'Data Penerimaan Barang',
+            'content' => 'tabel/t_history',
+            'judul' => 'TABEL HISTORY',
+            'rows' => $rows
+        );
+        $this->load->view('layout', $data);
+    }
 }
 
 /* End of file barang.php */

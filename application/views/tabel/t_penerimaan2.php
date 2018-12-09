@@ -27,7 +27,7 @@
                                             foreach ($rows as $row) {
                                                 ?>
                                                 <tr>
-                                                    <td><a href=""></a><?php echo $nourut++; ?></a></td>
+                                                    <td><?php echo $nourut++; ?></td>
                                                     <td><a href="<?php echo base_url('penerimaan/tampilDetail/'.$row->id_penerimaan) ?>"><?php echo $row->id_penerimaan; ?></a></td>
                                                     <td><?php echo $row->id_user; ?></td>
                                                     <td><?php echo $row->tanggal; ?></td>
