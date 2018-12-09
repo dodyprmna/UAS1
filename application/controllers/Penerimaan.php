@@ -160,6 +160,17 @@ class Penerimaan extends CI_Controller {
         );
         $this->load->view('layout', $data);
     }
+
+    public function delete($idp,$idb){
+        $this->load->model('penerimaan_model');
+        //$idp=$this->input->post($arr['id_penerimaan']);
+        //$idb=$this->input->post($arr['id_barang']);
+        
+        
+        if ($this->penerimaan_model->delete($idp,$idb)) {
+            redirect(site_url('Penerimaan/detail/'.$idp));
+        }
+    }
 }
 
 /* End of file barang.php */
