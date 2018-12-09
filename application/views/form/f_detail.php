@@ -72,7 +72,7 @@
                                                     <td><?php echo $row->id_penerimaan; ?></td>
                                                     <td><?php echo $row->id_barang; ?></td>
                                                     <td><?php echo $row->jumlah_barang; ?></td>
-                                                    <td><a href="<?php echo base_url('penerimaan/delete/'.$row->id_penerimaan) ?>"><button type="button" class="btn btn-primary">DELETE</button></a></td>
+                                                    <td><a href="<?php echo base_url('Penerimaan/delete/'.$row->id_penerimaan.'/'.$row->id_barang); ?>"><button type="button" class="btn btn-primary">DELETE</button></a></td>
                                                 </tr>
                                                 <?php
                                             }
