@@ -38,7 +38,7 @@
                                                         if ($row->tanggal==date('Y-m-d')){?>
                                                             <td><a href="<?php echo base_url('penerimaan/detail/'.$row->id_penerimaan) ?>"><button type="button" class="btn btn-primary">ADD DETAIL</button></a></td>
                                                         <?php } else {?>
-                                                            <td></td>
+                                                            <td>-</td>
                                                         <?php } ?>
                                                     <?php endif;?>
                                                 </tr>
@@ -52,4 +52,4 @@
                     </div>
                 </div>
             </div>
-</div>)
+</div>

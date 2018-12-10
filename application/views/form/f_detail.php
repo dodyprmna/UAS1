@@ -59,6 +59,7 @@
                                         <th>NO</th>
                                         <th>ID PENERIMAAN</th>
                                         <th>ID BARANG</th>
+                                        <th>NAMA BARANG </th>
                                         <th>JUMLAH</th>
                                         <th>AKSI</th>
                                     </thead>
@@ -71,7 +72,9 @@
                                                     <td><?php echo $nourut++; ?></td>
                                                     <td><?php echo $row->id_penerimaan; ?></td>
                                                     <td><?php echo $row->id_barang; ?></td>
+                                                    <td><?php echo $row->nama_barang; ?></td>
                                                     <td><?php echo $row->jumlah_barang; ?></td>
+
                                                     <td><a href="<?php echo base_url('Penerimaan/delete/'.$row->id_penerimaan.'/'.$row->id_barang); ?>"><button type="button" class="btn btn-primary">DELETE</button></a></td>
                                                 </tr>
                                                 <?php

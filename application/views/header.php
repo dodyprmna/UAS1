@@ -46,7 +46,7 @@
     	<div class="sidebar-wrapper">
             <div class="logo">
                 <a href="<?php echo base_url('home')?>" class="simple-text">
-                    ADMIN KITA
+                    TOKO KITA
                 </a>
             </div>
             <ul class="nav">
@@ -88,7 +88,7 @@
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-left">
                     </ul>
-
+                    
                     <ul class="nav navbar-nav navbar-right">
                         <li>
                             <a href="<?php echo base_url('auth/logout');?>">

@@ -28,12 +28,17 @@ class Penerimaan_model extends CI_Model {
     }
 
     public function tampilkanDet($id) {
-      $query=$this->db->query("SELECT * FROM detail_penerimaan WHERE id_penerimaan='$id' ");
+      $query=$this->db->query("SELECT id_penerimaan, p.id_barang, nama_barang, jumlah_barang FROM detail_penerimaan p join barang b on p.id_barang=b.id_barang WHERE id_penerimaan='$id' ");
         return $query;
     }
 
      public function delete($idp, $idb) {
         return $this->db->query("DELETE from detail_penerimaan where id_penerimaan='$idp' and id_barang='$idb'");
+    }
+//+      $query=$this->db->query("SELECT id_penerimaan, p.id_barang, nama_barang, jumlah_barang FROM detail_penerimaan p join barang b on p.id_barang=b.id_barang WHERE id_penerimaan='$id' ");
+        //return $query;
+    public function namaBar($id){
+        return $this->db->query("SELECT nama_barang from Barang where id_barang='$id'");
     }
     
     // public function getById($id) {

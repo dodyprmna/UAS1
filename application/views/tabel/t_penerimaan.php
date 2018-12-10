@@ -12,6 +12,7 @@
                                         <th>NO</th>
                                     	<th>ID PENERIMAAN</th>
                                     	<th>ID BARANG</th>
+                                        <th>NAMA BARANG</th>
                                     	<th>JUMLAH</th>
                                     </thead>
                                     <tbody>
@@ -23,6 +24,7 @@
                                                     <td><?php echo $nourut++; ?></td>
                                                     <td><?php echo $row->id_penerimaan; ?></td>
                                                     <td><?php echo $row->id_barang; ?></td>
+                                                    <td><?php echo $row->nama_barang; ?></td>
                                                     <td><?php echo $row->jumlah_barang; ?></td>
 
                                                 </tr>
