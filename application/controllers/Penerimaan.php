@@ -36,7 +36,7 @@ class Penerimaan extends CI_Controller {
         );
         $this->load->view('layout', $data);
         } else{
-        echo "<script>alert('Tidak dapat di akses!');history.go(-1);</script>";
+        echo "<script>history.go(-1);</script>";
         }
     }
 
@@ -62,7 +62,7 @@ class Penerimaan extends CI_Controller {
 
         $this->load->view('layout', $data);
         }else{
-            echo "<script>alert('Tidak dapat di akses!');history.go(-1);</script>";
+            echo "<script>history.go(-1);</script>";
             }
     }
 
@@ -78,22 +78,22 @@ class Penerimaan extends CI_Controller {
         if ($this->form_validation->run() == FALSE) {
 //           jika validasi gagal
             $this->tambah();
-        } else {    
-//            jika validasi berhasil
-            $data = array(
-                'id_user'   => $this->input->post('idsuplier'),
-                'tanggal'   => $this->input->post('tanggal'),
-                'jumlah'    => '',
-            );
+            } else {    
+    //            jika validasi berhasil
+                $data = array(
+                    'id_user'   => $this->input->post('idsuplier'),
+                    'tanggal'   => $this->input->post('tanggal'),
+                    'jumlah'    => '',
+                );
 
-            $this->load->model('penerimaan_model');
-            $this->penerimaan_model->tambah($data);
+                $this->load->model('penerimaan_model');
+                $this->penerimaan_model->tambah($data);
 
-            redirect(site_url('Penerimaan'));
-        }
+                redirect(site_url('Penerimaan'));
+            }
 
         }else{
-            echo "<script>alert('Tidak dapat di akses!');history.go(-1);</script>";
+            echo "<script>history.go(-1);</script>";
             }
     }
 
@@ -154,6 +154,7 @@ class Penerimaan extends CI_Controller {
     }
 
     public function history(){
+        if($this->session->userdata('level') == 'admin'){
         $this->load->model('history_model');
         $rows = $this->history_model->tampilkanSemua()->result();
         $data = array(
@@ -163,6 +164,9 @@ class Penerimaan extends CI_Controller {
             'rows' => $rows
         );
         $this->load->view('layout', $data);
+        }else{
+        echo "<script>history.go(-1);</script>";
+        }
     }
 
     public function delete($idp,$idb){
