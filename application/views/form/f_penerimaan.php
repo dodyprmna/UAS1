@@ -30,7 +30,8 @@
                                         <div class="col-md-8">
                                             <div class="form-group">
                                                 <label>Tanggal</label>
-                                                <input type="date" class="form-control" name="tanggal" required="required">
+                                                <?php date_default_timezone_set('Asia/Jakarta'); ?>
+                                                <input type="date" class="form-control" name="tanggal" value="<?php echo date('Y-m-d');?>" required="required" readonly>
                                             </div>
                                         </div>
                                     </div>

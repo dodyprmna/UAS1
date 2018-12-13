@@ -18,7 +18,7 @@ class Penerimaan extends CI_Controller {
         );
         $this->load->view('layout', $data);
         }else{
-        echo "<script>alert('Tidak dapat di akses!');history.go(-1);</script>";
+        echo "<script>history.go(-1);</script>";
         }
 
     }
