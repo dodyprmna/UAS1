@@ -132,12 +132,12 @@ class Penerimaan extends CI_Controller {
     }
 
     public function addDetail() {
-        $this->form_validation->set_rules('jumlah', 'Jumlah', 'required');
+        $this->form_validation->set_rules('jumlah', 'Jumlah','required');
         $this->form_validation->set_rules('idbarang', 'IDbarang', 'required');
 
         if ($this->form_validation->run() == FALSE) {
 //           jika validasi gagal
-            $this->tambah();
+            echo "<script>history.go(-1);</script>";
         } else {    
 //            jika validasi berhasil
             $data = array(

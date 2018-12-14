@@ -27,13 +27,13 @@
                                                 <label>ID barang</label>
                                                 
                                                 <select class="form-control" id="barang-list" name="idbarang">
-                                                    <option>-Pilih Barang-</option>
+                                                    <option value="">-Pilih Barang-</option>
                                                     <?php
                                                     foreach($barang as $r) { ?>
                                                       <option value="<?php echo $r->id_barang; ?>"><?php echo $r->nama_barang;?></option>
                                                       <?php } ?>
                                                 </select>
-
+                                                
                                             </div>
                                         </div>
                                     </div>
