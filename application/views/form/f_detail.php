@@ -41,7 +41,7 @@
                                         <div class="col-md-8">
                                             <div class="form-group">
                                                 <label>jumlah</label>
-                                                <input type="number" class="form-control"  name="jumlah" required="required">
+                                                <input type="number" class="form-control"  name="jumlah" required="required" min="1">
                                             </div>
                                         </div>
                                     </div>
