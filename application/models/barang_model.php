@@ -18,4 +18,5 @@ class Barang_model extends CI_Model {
         return $q;
     }
     
+    //awawaw
 }
